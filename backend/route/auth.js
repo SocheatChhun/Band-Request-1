@@ -244,7 +244,7 @@ router.post("/", async (req, res) => {
       email,
       createdDate: new Date(),
       userImg:faker.image.people()
-      
+
     });
     //create new User Class Schema
     //Save the user to database when success
@@ -301,7 +301,7 @@ router.post("/changeprofile", async (req, res) => {
   const { username, profileUrl } = req.body;
   try {
     //if found a user assign it to the variable
-    user = await UserDetail.update(
+    user = await UserDetail.updateOne(
       { username: req.body.username },
       {
         $set: {
